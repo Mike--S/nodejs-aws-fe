@@ -11,15 +11,15 @@ import PageProductForm from "components/pages/PageProductForm/PageProductForm";
 import PageCart from "components/pages/PageCart/PageCart";
 import PageOrders from "components/pages/PageOrders/PageOrders";
 import PageOrder from "components/pages/PageOrder/PageOrder";
+import PageNotFound from "components/pages/PageNotFound/PageNotFound";
 import PageProductImport from "components/pages/admin/PageProductImport/PageProductImport";
 
 function App() {
 
   return (
     <Router>
-      <Switch>
-        <Route path="/">
-          <MainLayout>
+      <MainLayout>
+        <Switch>
             <Route exact path="/">
               <PageProducts/>
             </Route>
@@ -38,9 +38,9 @@ function App() {
             <Route exact path="/admin/products">
               <PageProductImport />
             </Route>
-          </MainLayout>
-        </Route>
-      </Switch>
+            <Route exact path="/*"> <PageNotFound /> </Route>
+        </Switch>
+      </MainLayout>
     </Router>
   );
 }

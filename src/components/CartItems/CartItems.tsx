@@ -28,17 +28,17 @@ type CartItemsProps = {
 export default function CartItems({items, isEditable}: CartItemsProps) {
   const classes = useStyles();
 
-  const totalPrice: number = items.reduce((total, item) => (item.count * item.product.price + total), 0);
+  const totalPrice: number = items.reduce((total, item) => (item.count * item.product.Listing_Price + total), 0);
 
   return (
     <>
       <List disablePadding>
         {items.map((cartItem: CartItem) => (
-          <ListItem className={classes.listItem} key={cartItem.product.id}>
+          <ListItem className={classes.listItem} key={cartItem.product.Product_ID}>
             {isEditable && <AddProductToCart product={cartItem.product}/>}
-            <ListItemText primary={cartItem.product.title} secondary={cartItem.product.description}/>
+            <ListItemText primary={cartItem.product.Product_Name} secondary={cartItem.product.Description}/>
             <Typography
-              variant="body2">{formatAsPrice(cartItem.product.price)} x {cartItem.count} = {formatAsPrice(cartItem.product.price * cartItem.count)}</Typography>
+              variant="body2">{formatAsPrice(cartItem.product.Listing_Price)} x {cartItem.count} = {formatAsPrice(cartItem.product.Listing_Price * cartItem.count)}</Typography>
           </ListItem>
         ))}
         <ListItem className={classes.listItem}>

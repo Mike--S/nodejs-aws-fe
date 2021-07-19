@@ -121,7 +121,7 @@ export default function PageOrder() {
     Promise.all(promises)
       .then(([{data: products}, {data: order}]) => {
         const cartItems: CartItem[] = order.items.map((i: OrderItem) => ({
-          product: products.find((p: Product) => p.id === i.productId),
+          product: products.find((p: Product) => p.Product_ID === i.productId),
           count: i.count
         }));
         setOrder(order);
